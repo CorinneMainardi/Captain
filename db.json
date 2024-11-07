@@ -63,6 +63,14 @@
       "captcha": "afgdb",
       "agree": false,
       "id": 8
+    },
+    {
+      "email": "fav1@fav1.it",
+      "password": "$2a$10$OGfZUzU7Ih3jZYa.kazh9eka5njS8d7pHlyfJ1fWfQlQbL1DryDJy",
+      "username": "fav1",
+      "captcha": "za",
+      "agree": false,
+      "id": 9
     }
   ],
   "stories": [
@@ -113,7 +121,7 @@
         }
       ],
       "id": 2,
-
+      "userId": 5,
       "genere": "romantico",
       "username": "alyfa",
       "img": "elfo.webp"
@@ -136,7 +144,7 @@
         }
       ],
       "id": 3,
-
+      "userId": 1,
       "genere": "Angst, Drammatico, Fantasy",
       "username": "pippopluto",
       "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg"
@@ -173,10 +181,11 @@
         }
       ],
       "id": 1,
-
+      "userId": 6,
       "genere": "comico",
       "username": "anykiller",
-      "img": "captainMike.webp"
+      "img": "captainMike.webp",
+      "addedById": 9
     },
     {
       "title": "Babbo Natale e l'elfo lecca lecca",
@@ -190,10 +199,35 @@
         }
       ],
       "id": 2,
-
+      "userId": 5,
       "genere": "romantico",
       "username": "alyfa",
-      "img": "elfo.webp"
+      "img": "elfo.webp",
+      "addedById": 9
+    },
+    {
+      "title": "A cruel affair",
+      "description": "La guerra per il destino della Terra di Mezzo è cominciata.A vent'anni dalla creazione dei primi Anelli, Sauron ha dato il via ad una guerra contro il popolo degli Elfi",
+      "capitoli": [
+        {
+          "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg",
+          "titolo": "Il messaggio ",
+          "body": "Galadriel dei Noldor si svegliò con la sensazione di aver dormito per giorni, sebbene avesse passato solo poche ore nel mondo al di là della veglia. Ma per qualcuno come lei – che aveva camminato per i campi di Valinor ancora prima che il Sole proiettasse la sua luce rinvigorente sulla Terra di Mezzo – un tempo così breve sarebbe stato più che sufficiente per recuperare le energie perdute.Con il corpo indolenzito ma ben riposato, si sollevò lentamente dal letto in lino bianco e lasciò che i suoi capelli dorati le cadessero sulle spalle, assorbendo i raggi che filtravano dalla finestra della camera. E per i Valar! Quanto le era mancata la sensazione di quella luce, dopo che aveva passato innumerevoli settimane sotto le nubi evocate dalla magia di Sauron.Chiuse e riaprì gli occhi un paio di volte per riabituarsi alla veglia e, dopo essersi infilata una veste del colore del cielo più azzurro, camminò fino alla porta della stanza per prendere una necessaria – quanto meritata – boccata d’aria fresca. Tuttavia, quando i cardini si spalancarono, non fu accolta dalla visione dei giardini del palazzo… bensì dal volto scolpito di Elrond Perendhil, suo parente e vecchio amico.",
+          "numeroCapitolo": 1
+        },
+        {
+          "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg",
+          "titolo": "Mordor",
+          "body": "Per sei giorni, Galadriel galoppò in assoluto silenzio, cercando di ignorare il dolore che continuava a strisciare dentro di lei come un’infida serpe. Naturalmente, furono molti i tentativi del suo avversario di conversare, ma tutti si rivelarono infruttuosi. Lei non gli avrebbe concesso neanche un’oncia della propria attenzione. Poi, il settimo giorno, raggiunsero finalmente i confini delle Terre del Sud. Gli occhi dell’Elfa si spalancarono subito sorpresi alla vista delle piane rigogliose che circondavano le piane desertiche di Mordor. Campi di grano, mulini a vento e orti di frutta fresca, uomini impegnati a coltivarli… era una panorama molto diverso rispetto a quello che si era immaginata durante la traversata.Per molto tempo si era interrogata sul destino delle terre che il Signore Oscuro aveva conquistato dopo la presa di Mordor… ma niente al mondo avrebbe potuto prepararla per un regno che – in fin dei conti – non era poi così dissimile dai ricordi di una vita ormai passata, quando aveva visitato quei campi verde smeraldo alla ricerca del Nemico.",
+          "numeroCapitolo": 2
+        }
+      ],
+      "id": 3,
+      "userId": 1,
+      "genere": "Angst, Drammatico, Fantasy",
+      "username": "pippopluto",
+      "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg",
+      "addedById": 9
     }
   ]
 }

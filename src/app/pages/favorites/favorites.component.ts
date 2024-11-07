@@ -24,7 +24,7 @@ export class FavoritesComponent {
   ngOnInit() {
     // this.autoLogout();
     this.authSvc.restoreUser();
-    this.getAllFavorites();
+
     this.getThisUser();
     if (this.user.id) this.id = this.user.id;
   }
@@ -34,7 +34,8 @@ export class FavoritesComponent {
         map((user) => {
           if (user) {
             this.user = user;
-            console.log(this.user);
+            if (this.user.id) this.id = this.user.id;
+            this.getAllFavorites(); // Chiamata a getAllFavorites con id impostato
           }
         })
       )
