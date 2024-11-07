@@ -1,0 +1,25 @@
+img {
+  height: 200px;
+  width: 100%;
+}
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: black;
+  width: 30%;
+}
+h3 {
+  display: inline-block;
+  height: 30px;
+}
+.book {
+  background-image: url("../../../../public/book.jpeg");
+  background-size: cover;
+  width: 70%;
+}

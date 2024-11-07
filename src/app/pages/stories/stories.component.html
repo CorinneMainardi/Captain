@@ -1,0 +1,23 @@
+@if(storia){
+
+<nz-carousel [nzDotPosition]="dotPosition">
+  @for (index of array; track index) {
+  <div nz-carousel-content *ngFor="let capitolo of capitoli">
+    <h3>{{ storia.title }}</h3>
+    <table border="1">
+      <tr>
+        <th><img [src]="capitolo.img" alt="{{ capitolo.img }}" /></th>
+        <th>
+          <p>Descrizione{{ storia.description }}</p>
+
+          <p>Genere:{{ storia.genere }}</p>
+
+          <p>Autore:{{ storia.username }}</p>
+        </th>
+      </tr>
+    </table>
+  </div>
+  }
+</nz-carousel>
+
+}

@@ -1,0 +1,28 @@
+<nz-carousel [nzEffect]="strategy" *ngIf="stories.length > 0">
+  @for (index of array; track index) {
+  <div nz-carousel-content *ngFor="let storia of stories">
+    <table border="1">
+      <tr>
+        <th><img [src]="storia.img" alt="{{ storia.img }}" /></th>
+        <th>
+          <p>Descrizione{{ storia.description }}</p>
+
+          <p>Genere:{{ storia.genere }}</p>
+
+          <p>Autore:{{ storia.username }}</p>
+        </th>
+      </tr>
+    </table>
+    <p>
+      <a
+        [routerLink]="['/stories', storia.id]"
+        nz-button
+        nzType="default"
+        nzSize="'small'"
+        nzShape="round"
+        >Leggi</a
+      >
+    </p>
+  </div>
+  }
+</nz-carousel>
