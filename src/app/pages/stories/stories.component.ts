@@ -1,6 +1,9 @@
+import { FavoritesService } from './../../servicespages/favorites.service';
 import { Component } from '@angular/core';
 import { iStoria } from '../../interfaces/istoria';
 import { iCapitolo } from '../../interfaces/icapitolo';
+import { ActivatedRoute } from '@angular/router';
+import { StoriesService } from '../../servicespages/stories.service';
 
 @Component({
   selector: 'app-stories',
@@ -12,5 +15,30 @@ export class StoriesComponent {
   dotPosition = 'left';
   storia!: iStoria;
   capitoli: iCapitolo[] = [];
-  // costructor(private )
+  id!: number;
+  constructor(
+    private route: ActivatedRoute,
+    private storiesSvc: StoriesService,
+    private favoritesSvc: FavoritesService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (id) {
+        this.loadStoria(+id);
+      }
+    });
+  }
+
+  loadStoria(id: number) {
+    this.storiesSvc.getStoriaById(id).subscribe((storia) => {
+      this.storia = storia;
+      this.capitoli = storia.capitoli;
+    });
+  }
+
+  addFavorites() {
+    this.favoritesSvc.addFavorite(this.storia).subscribe();
+  }
 }

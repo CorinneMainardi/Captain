@@ -3,7 +3,6 @@
     {
       "email": "pippo@pluto.it",
       "password": "$2a$10$hxQ6adPzgQQ8y/Lp9rXw/.4XCH1GC.MakT4Bp.n4ESFDFXqSAhtlW",
-      "checkPassword": "pippopluto",
       "username": "pippopluto",
       "captcha": "sdggn",
       "agree": true,
@@ -12,7 +11,6 @@
     {
       "email": "writer@writer.it",
       "password": "$2a$10$wx8OLqqd6SSaai.0WkwBCuQnvzhyd84t/wJSvl7fYZ3ZmESF8dWy.",
-      "checkPassword": "writer",
       "username": "writer",
       "captcha": "asgfb ",
       "agree": true,
@@ -21,7 +19,6 @@
     {
       "email": "writer@gmail.com",
       "password": "$2a$10$51b5aIaK3j1Rpro0ulTu8u2O7jgGEbnlR9nFkJheNeZhYtArKgw9.",
-      "checkPassword": "writer",
       "username": "writer",
       "captcha": "efd",
       "agree": true,
@@ -30,7 +27,6 @@
     {
       "email": "corinnewriter@gmail.com",
       "password": "$2a$10$Sua/a2Jz4yYyFvCZB5uD4ewnfrc9J4vql0k/tfC9c./gNeLFWaW5i",
-      "checkPassword": "writer",
       "username": "writer@gmail.com",
       "captcha": "sg",
       "agree": true,
@@ -39,7 +35,6 @@
     {
       "email": "alyfa@alifa.it",
       "password": "$2a$10$SLB6Kn3Zfa95.dvRteJxG.LDFnZyG35dD9KWOPOb0w3XUf/9h4JVC",
-      "checkPassword": "alyfa",
       "username": "alyfa",
       "captcha": "123",
       "agree": true,
@@ -48,11 +43,26 @@
     {
       "email": "anykiller@anykiller.it",
       "password": "$2a$10$4tadwdJrGSp8F66s8z37B.NfY50XIHNTmMxd.TiNNd6L3HQm0KVU2",
-      "checkPassword": "anykiller",
       "username": "anykiller",
       "captcha": "567",
       "agree": true,
       "id": 6
+    },
+    {
+      "email": "blue@blue",
+      "password": "$2a$10$/wlECOVohYYRBgJwZJQWZO2yJTzpRQoMuQtaASM/fSJfdq71XUsoS",
+      "username": "blue",
+      "captcha": "weg",
+      "agree": false,
+      "id": 7
+    },
+    {
+      "email": "ciao@ciao.it",
+      "password": "$2a$10$4uX2luEv7xq/8mShZrTdV.UsnfOBL2ZMIehat7tGrAOmsDn/ql.xm",
+      "username": "ciao",
+      "captcha": "afgdb",
+      "agree": false,
+      "id": 8
     }
   ],
   "stories": [
@@ -103,7 +113,7 @@
         }
       ],
       "id": 2,
-      "userId": 5,
+
       "genere": "romantico",
       "username": "alyfa",
       "img": "elfo.webp"
@@ -126,11 +136,64 @@
         }
       ],
       "id": 3,
-      "userId": 1,
+
       "genere": "Angst, Drammatico, Fantasy",
       "username": "pippopluto",
       "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg"
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "title": "Le avventure di Captain Mike e la ciurma fs0724",
+      "description": "Leggi le avventure di Captain Mike con la sua ciurma, tra array di pizze, caffé e debug",
+      "capitoli": [
+        {
+          "img": "arrayPizze.webp",
+          "titolo": "Captain Mike e gli array di pizze",
+          "body": "Ogni mattina il nostro capitano si divertiva a provocare lo stomaco della ciurma con gustosissimi array di pizze. Tra diavola, margherita etc, gli stomaci urlavano pietà già alle 9 di mattina. Le diete ringraziano, Capitano!",
+          "numeroCapitolo": 1
+        },
+        {
+          "img": "cit.webp",
+          "titolo": "Captan Mike e la cit non proprio cit",
+          "body": "Se lo vuoi fare così, fallo! Ma, Potresti anche non farlo...vedi?! Prima o poi imparerò la citazione per bene... I babbani non sapranno mai quale fosse il testo reale della citazione",
+          "numeroCapitolo": 2
+        },
+        {
+          "img": "",
+          "titolo": "Captain Mike e mi serve il primo caffé per farmi un caffé",
+          "body": "Il caffé è l'unica sostanza che può smuovere i neuroni di un pirata programmatore. Un caffé ogni ora per poter continuare è la legge non scritta.",
+          "numeroCapitolo": 3
+        },
+        {
+          "img": "/public/lunedi.webp",
+          "titolo": "Captain Mike e abbiate pazienza è lunedì anche per me",
+          "body": "Anche i capitani più temibili e intrepidi soffrono il lunedì... sebbene per la ciurma fosse più provata, con il capitano era sempre un 'armiamoci e partiamo'.",
+          "numeroCapitolo": 4
+        }
+      ],
+      "id": 1,
+
+      "genere": "comico",
+      "username": "anykiller",
+      "img": "captainMike.webp"
+    },
+    {
+      "title": "Babbo Natale e l'elfo lecca lecca",
+      "description": "Bella odia il Natale, e questa volta sente la disperazione ancora più forte. Vorrebbe chiudersi in casa e dimenticare il periodo più brutto dell’anno, ma suo fratello la costringe a riprendere in mano la sua vita e l’arruola per recitare la parte dell’Elfo aiutante di Babbo Natale. È proprio qui che incontra Edward, uomo attraente, simpatico e premuroso che in qualche modo spazza via un po’ di quella rabbia a stento trattenuta.",
+      "capitoli": [
+        {
+          "img": "",
+          "titolo": "Babbo Natale e l'elfo lecca lecca",
+          "body": "La mattina seguente sono svegliata dalle urla in salone della mia nipotina, indosso una vestaglia di pile e scendo in gran fretta per non perdermi l’apertura dei regali. Ovviamente l’attenzione è tutta dedicata a lei, nonostante ci siano una moltitudine di pacchetti sotto l’albero. Gridacchia e strappa le carte con un’emozione meravigliosa sul volto e sono felice di aver contribuito con una bellissima bambola per la carrozzina che le hanno regalato i suoi. A turno prendiamo i pacchetti sotto l’albero e sono davvero stupita di trovarne due per me. Uno da parte di Alice e Jasper e l’altro da parte di Rosalie, che deve aver consegnato a mio fratello in segreto. Ho ricevuto un e-reader nuovo e un libro. All’interno del libro però c’era anche una foto del gruppo con cui stiamo lavorando al villaggio e una dedica dolce da parte di Rose. Passiamo la giornata a casa di mamma e papà, dopo quasi un’ora di viaggio, è da anni che non sono così felice in questa giornata e tutti sono stupiti ma contenti di vedermi allegra e sinceramente divertita da ciò che mi circonda.Solo verso le tre di pomeriggio riesco a prendere tra le mani il telefono e leggere tutti i messaggi di auguri, tra cui quello di Edward, lungo due pagine.",
+          "numeroCapitolo": 1
+        }
+      ],
+      "id": 2,
+
+      "genere": "romantico",
+      "username": "alyfa",
+      "img": "elfo.webp"
+    }
+  ]
 }

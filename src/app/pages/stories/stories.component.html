@@ -4,18 +4,28 @@
   @for (index of array; track index) {
   <div nz-carousel-content *ngFor="let capitolo of capitoli">
     <h3>{{ storia.title }}</h3>
+    <p>Autore:{{ storia.username }}</p>
     <table border="1">
       <tr>
         <th><img [src]="capitolo.img" alt="{{ capitolo.img }}" /></th>
         <th>
-          <p>Descrizione{{ storia.description }}</p>
-
-          <p>Genere:{{ storia.genere }}</p>
-
-          <p>Autore:{{ storia.username }}</p>
+          <p>{{ capitolo.titolo }}</p>
+          <p>{{ capitolo.body }}</p>
         </th>
       </tr>
     </table>
+    <p>
+      <a
+        [routerLink]="['/stories', storia.id]"
+        nz-button
+        nzType="default"
+        nzSize="'small'"
+        nzShape="round"
+        (click)="addFavorites()"
+        ><span nz-icon nzType="star" nzTheme="outline"></span> Aggiungi ai
+        preferiti</a
+      >
+    </p>
   </div>
   }
 </nz-carousel>

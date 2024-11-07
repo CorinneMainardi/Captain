@@ -21,7 +21,7 @@ export class RegisterComponent {
   validateForm: FormGroup<{
     email: FormControl<string>;
     password: FormControl<string>;
-    checkPassword: FormControl<string>;
+
     username: FormControl<string>;
     captcha: FormControl<string>;
     agree: FormControl<boolean>;
@@ -42,13 +42,6 @@ export class RegisterComponent {
         }
       });
     }
-  }
-
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
-    Promise.resolve().then(() =>
-      this.validateForm.controls.checkPassword.updateValueAndValidity()
-    );
   }
 
   confirmationValidator: ValidatorFn = (
@@ -74,10 +67,10 @@ export class RegisterComponent {
     this.validateForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
-      checkPassword: ['', [Validators.required, this.confirmationValidator]],
+
       username: ['', [Validators.required]],
       captcha: ['', [Validators.required]],
-      agree: [false],
+      agree: [false, [Validators.required]],
     });
   }
 

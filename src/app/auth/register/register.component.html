@@ -27,28 +27,10 @@
         type="password"
         id="password"
         formControlName="password"
-        (ngModelChange)="updateConfirmValidator()"
       />
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired
-      >Confirm Password</nz-form-label
-    >
-    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
-      <input
-        nz-input
-        type="password"
-        formControlName="checkPassword"
-        id="checkPassword"
-      />
-      <ng-template #errorTpl let-control>
-        @if (control.errors?.['required']) { Please confirm your password! } @if
-        (control.errors?.['confirm']) { Two passwords that you enter is
-        inconsistent! }
-      </ng-template>
-    </nz-form-control>
-  </nz-form-item>
+
   <nz-form-item>
     <nz-form-label
       [nzSm]="6"
@@ -97,7 +79,12 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item nz-row class="register-area">
-    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+    <nz-form-control
+      [nzSpan]="14"
+      [nzOffset]="6"
+      nzErrorTip="You must agree to the terms"
+      nzRequired
+    >
       <label nz-checkbox formControlName="agree">
         <span>
           I have read the
