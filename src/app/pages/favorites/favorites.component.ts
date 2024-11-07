@@ -13,6 +13,7 @@ import { iUser } from '../../interfaces/iuser';
   styleUrl: './favorites.component.scss',
 })
 export class FavoritesComponent {
+  // ho provato a debuggare perché mi fa 2 chiamate ma non trovo l'errore
   favorites: iStoria[] = [];
   id!: number;
   user!: iUser;
@@ -26,7 +27,7 @@ export class FavoritesComponent {
     this.authSvc.restoreUser();
 
     this.getThisUser();
-    if (this.user.id) this.id = this.user.id;
+    this.getAllFavorites();
   }
   getThisUser() {
     this.authSvc.user$
@@ -34,29 +35,32 @@ export class FavoritesComponent {
         map((user) => {
           if (user) {
             this.user = user;
-            if (this.user.id) this.id = this.user.id;
-            this.getAllFavorites(); // Chiamata a getAllFavorites con id impostato
+            if (this.user.id) {
+              this.id = this.user.id;
+            }
           }
         })
       )
       .subscribe();
   }
+
   getAllFavorites() {
     this.favoritesSvc.getAllFavorites(this.id).subscribe((favorites) => {
       this.favorites = favorites;
+      console.log(this.favorites);
     });
   }
-  // autoLogout() {
-  //   this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
-  //     if (accessData) {
-  //       const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
-  //         accessData.accessToken
-  //       );
-  //       if (expDate) {
-  //         this.authSvc.autoLogout(expDate);
-  //         this.router.navigate(['/']);
-  //       }
-  //     }
-  //   });
-  // }
 }
+// autoLogout() {
+//   this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+//     if (accessData) {
+//       const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+//         accessData.accessToken
+//       );
+//       if (expDate) {
+//         this.authSvc.autoLogout(expDate);
+//         this.router.navigate(['/']);
+//       }
+//     }
+//   });
+// }
