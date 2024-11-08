@@ -15,13 +15,17 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class UserDetailComponent {
   user!: iAccessData | null;
   stories: iStoria[] = [];
-  isShow$ = new BehaviorSubject<boolean>(true);
+  deleteSubject$ = new Subject<number>();
 
   constructor(
     private authSvc: AuthService,
     private router: Router,
     private StoriesSvc: StoriesService
-  ) {}
+  ) {
+    this.deleteSubject$.subscribe((index) => {
+      this.stories.splice(index, 1); // Rimuove l'elemento all'indice specificato
+    });
+  }
   ngOnInit() {
     // this.autoLogout();
     this.authSvc.restoreUser();
@@ -37,8 +41,8 @@ export class UserDetailComponent {
         });
       });
   }
-  toggleShow(): void {
-    this.isShow$.next(!this.isShow$.getValue());
+  deleteStory(index: number): void {
+    this.stories.splice(index, 1); // Rimuove l'elemento alla posizione dell'indice
   }
 
   // autoLogout() {

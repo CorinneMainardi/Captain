@@ -25,8 +25,8 @@
 </div>
 
 <div class="card-container">
-  <ng-container *ngFor="let story of stories">
-    <nz-card nzTitle="la tua storia" *ngIf="isShow$">
+  <ng-container *ngFor="let story of stories; let i = index">
+    <nz-card nzTitle="la tua storia">
       <p>Titolo: {{ story.title }}</p>
       <p>Descrizione: {{ story.description }}</p>
       <button
@@ -34,7 +34,7 @@
         nzType="default"
         nzSize="'small'"
         nzShape="round"
-        (click)="toggleShow()"
+        (click)="deleteStory(i)"
       >
         <span nz-icon nzType="delete" nzTheme="outline"></span> Elimina
       </button>
