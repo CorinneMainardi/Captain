@@ -1,11 +1,13 @@
 .footer-top {
   padding: 1rem 0;
+  padding-bottom: 2 rem;
 }
 
-.social-links div {
+.social-links {
   display: flex;
-  align-items: center;
-  margin-left: 1.5rem;
+  justify-content: end;
+  margin-top: 0.5rem;
+  margin-left: 23rem;
 }
 
 .footer-info {
