@@ -30,6 +30,7 @@ export class WriteStoryComponent {
   ) {
     this.validateForm = this.fb.group({
       title: ['', [Validators.required]],
+      img: [''],
       genere: ['', [Validators.required]],
       description: ['', [Validators.required]],
       numeroCapitoli: ['', [Validators.required, Validators.min(1)]],
@@ -84,7 +85,7 @@ export class WriteStoryComponent {
         description: this.validateForm.value.description,
         genere: this.validateForm.value.genere,
         userId: this.user.id,
-        img: '', // Se hai bisogno di un'immagine, aggiungi un campo per caricarla nel form
+        img: this.validateForm.value.img,
         capitoli: this.capitoli.value.map(
           (c: {
             titolo: string;

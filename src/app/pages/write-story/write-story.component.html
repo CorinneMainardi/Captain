@@ -4,7 +4,7 @@
 
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Titolo storia: </nz-form-label>
+    <nz-form-label [nzSpan]="7" nzRequired>Titolo storia </nz-form-label>
     <nz-form-control
       [nzSpan]="12"
       nzHasFeedback
@@ -25,7 +25,18 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Description:</nz-form-label>
+    <nz-form-label [nzSpan]="7"> Immagine </nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input
+        nz-input
+        formControlName="img"
+        placeholder="Inserisci url dell'immagine"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Description</nz-form-label>
     <nz-form-control
       [nzSpan]="12"
       nzHasFeedback
@@ -43,7 +54,7 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Genere: </nz-form-label>
+    <nz-form-label [nzSpan]="7" nzRequired>Genere </nz-form-label>
     <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="genereErrorTpl">
       <input nz-input formControlName="genere" placeholder="Genere" />
       <ng-template #genereErrorTpl let-control>

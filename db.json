@@ -8,26 +8,11 @@
       "agree": true,
       "id": 1
     },
-    {
-      "email": "writer@writer.it",
-      "password": "$2a$10$wx8OLqqd6SSaai.0WkwBCuQnvzhyd84t/wJSvl7fYZ3ZmESF8dWy.",
-      "username": "writer",
-      "captcha": "asgfb ",
-      "agree": true,
-      "id": 2
-    },
-    {
-      "email": "writer@gmail.com",
-      "password": "$2a$10$51b5aIaK3j1Rpro0ulTu8u2O7jgGEbnlR9nFkJheNeZhYtArKgw9.",
-      "username": "writer",
-      "captcha": "efd",
-      "agree": true,
-      "id": 3
-    },
+
     {
       "email": "corinnewriter@gmail.com",
       "password": "$2a$10$Sua/a2Jz4yYyFvCZB5uD4ewnfrc9J4vql0k/tfC9c./gNeLFWaW5i",
-      "username": "writer@gmail.com",
+      "username": "corinnewriter",
       "captcha": "sg",
       "agree": true,
       "id": 4,
@@ -419,6 +404,36 @@
         }
       ],
       "id": 4
+    },
+    {
+      "title": "prova con img",
+      "description": "prova con img",
+      "genere": "prova con img",
+      "userId": 4,
+      "img": "",
+      "capitoli": [
+        {
+          "titolo": "prova con img",
+          "body": "prova con img",
+          "numeroCapitolo": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "prova con img 2",
+      "description": "prova con img 2",
+      "genere": "prova con img 2",
+      "userId": 4,
+      "img": "https://www.veterinarimatera.it/wp-content/uploads/2021/03/cane-1.jpg",
+      "capitoli": [
+        {
+          "titolo": "prova con img 2",
+          "body": "prova con img 2",
+          "numeroCapitolo": 1
+        }
+      ],
+      "id": 6
     }
   ]
 }

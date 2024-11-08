@@ -28,6 +28,9 @@
   <ng-container *ngFor="let story of stories">
     <nz-card nzTitle="la tua storia">
       <p>Titolo: {{ story.title }}</p>
+      @if(story.img){
+      <p><img [src]="story.img" alt="{{ story.img }}" /></p>
+      }
       <p>Descrizione: {{ story.description }}</p>
       <button
         nz-button
