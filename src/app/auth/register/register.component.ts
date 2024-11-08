@@ -70,7 +70,7 @@ export class RegisterComponent {
 
       username: ['', [Validators.required]],
       captcha: ['', [Validators.required]],
-      agree: [false, [Validators.required]],
+      agree: [false],
     });
   }
 

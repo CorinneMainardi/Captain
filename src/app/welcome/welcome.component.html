@@ -13,6 +13,18 @@
   Chiunque dietro un nickname, potrà raccomntare di sé e far scorrere le dita
   sulal tastiera lasciando che le storie prendano vita
 </p>
+<!-- @if(stories.id){
+@if(stories.id === 1){
+<div  *ngFor="let story of stories" class="container">
+  <div >
+    <p class="title">{{ story.title }}</p>
+    <img [src]="story.img" alt="{{ story.img }}" />
+
+    <p>Descrizione{{ story.description }}</p>
+  </div>
+</div>
+}
+} -->
 
 <section class="logReg">
   <h3>Vuoi continuare a leggere la storia?</h3>
@@ -48,7 +60,7 @@
 </section>
 
 <section id="regolamento" class="regolamento">
-  <h3>Regolamento</h3>
+  <h3><span nz-icon nzType="warning" nzTheme="outline"></span>Regolamento</h3>
   <p>
     Registrandoti e loggandoti acceterai di usare un eventuale linguaggio
     spinto, ma non violento e discriminatorio

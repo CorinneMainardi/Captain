@@ -99,13 +99,13 @@
           "numeroCapitolo": 2
         },
         {
-          "img": "",
+          "img": "caffe.webp",
           "titolo": "Captain Mike e mi serve il primo caffé per farmi un caffé",
           "body": "Il caffé è l'unica sostanza che può smuovere i neuroni di un pirata programmatore. Un caffé ogni ora per poter continuare è la legge non scritta.",
           "numeroCapitolo": 3
         },
         {
-          "img": "/public/lunedi.webp",
+          "img": "lunedi.webp",
           "titolo": "Captain Mike e abbiate pazienza è lunedì anche per me",
           "body": "Anche i capitani più temibili e intrepidi soffrono il lunedì... sebbene per la ciurma fosse più provata, con il capitano era sempre un 'armiamoci e partiamo'.",
           "numeroCapitolo": 4

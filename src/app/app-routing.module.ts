@@ -60,6 +60,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'writeStory',
+    loadChildren: () =>
+      import('./pages/write-story/write-story.module').then(
+        (m) => m.WriteStoryModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./not-found/not-found.module').then((m) => m.NotFoundModule),

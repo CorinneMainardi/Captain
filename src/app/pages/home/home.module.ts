@@ -9,10 +9,17 @@ import {
   NzCarouselModule,
 } from 'ng-zorro-antd/carousel';
 import { SharedModule } from '../../shared-component/shared/shared.module';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule, NzCarouselModule, SharedModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    NzCarouselModule,
+    SharedModule,
+    NzIconModule,
+  ],
   providers: [
     {
       provide: NZ_CAROUSEL_CUSTOM_STRATEGIES,

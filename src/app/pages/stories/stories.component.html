@@ -1,15 +1,19 @@
 @if(storia){
+<h1>
+  Eccoti! <br />
+  Qui potrai leggere la storia che hai scelto
+</h1>
 
 <nz-carousel [nzDotPosition]="dotPosition">
   @for (index of array; track index) {
   <div nz-carousel-content *ngFor="let capitolo of capitoli">
-    <h3>{{ storia.title }}</h3>
+    <h2>{{ storia.title }}</h2>
     <p>Autore:{{ storia.username }}</p>
     <table border="1">
       <tr>
         <th><img [src]="capitolo.img" alt="{{ capitolo.img }}" /></th>
         <th>
-          <p>{{ capitolo.titolo }}</p>
+          <h3>{{ capitolo.titolo }}</h3>
           <p>{{ capitolo.body }}</p>
         </th>
       </tr>

@@ -39,12 +39,23 @@
               Favorites</a
             >
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/user-detail"
-              ><span nz-icon nzType="user" nzTheme="outline"></span> My
-              account</a
-            >
+          <li nz-submenu nzOpen nzTitle="Profile" nzIcon="user">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/user-detail"
+                  ><span nz-icon nzType="user" nzTheme="outline"></span> My
+                  account</a
+                >
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/writeStory"
+                  ><span nz-icon nzType="signature" nzTheme="outline"></span>
+                  Write a story</a
+                >
+              </li>
+            </ul>
           </li>
+
           <li nz-menu-item nzMatchRouter>
             <a (click)="logout()"
               ><span nz-icon nzType="poweroff" nzTheme="outline"></span>
