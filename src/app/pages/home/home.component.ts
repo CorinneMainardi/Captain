@@ -31,21 +31,20 @@ export class HomeComponent {
     });
     this.userSvc.getAllUser().subscribe((user) => (this.users = user));
 
-    // this.autoLogout();
+    this.autoLogout();
     this.authSvc.restoreUser();
   }
 
-  // autoLogout() {
-  //   this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
-  //     if (accessData) {
-  //       const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
-  //         accessData.accessToken
-  //       );
-  //       if (expDate) {
-  //         this.authSvc.autoLogout(expDate);
-  //         this.router.navigate(['/']);
-  //       }
-  //     }
-  //   });
-  // }
+  autoLogout() {
+    this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+      if (accessData) {
+        const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+          accessData.accessToken
+        );
+        if (expDate) {
+          this.authSvc.autoLogout(expDate);
+        }
+      }
+    });
+  }
 }

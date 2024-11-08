@@ -27,7 +27,7 @@ export class UserDetailComponent {
     });
   }
   ngOnInit() {
-    // this.autoLogout();
+    this.autoLogout();
     this.authSvc.restoreUser();
 
     this.authSvc.authSubject$.subscribe((user) => (this.user = user));
@@ -45,17 +45,16 @@ export class UserDetailComponent {
     this.stories.splice(index, 1); // Rimuove l'elemento alla posizione dell'indice
   }
 
-  // autoLogout() {
-  //   this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
-  //     if (accessData) {
-  //       const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
-  //         accessData.accessToken
-  //       );
-  //       if (expDate) {
-  //         this.authSvc.autoLogout(expDate);
-  //         this.router.navigate(['/']);
-  //       }
-  //     }
-  //   });
-  // }
+  autoLogout() {
+    this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+      if (accessData) {
+        const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+          accessData.accessToken
+        );
+        if (expDate) {
+          this.authSvc.autoLogout(expDate);
+        }
+      }
+    });
+  }
 }

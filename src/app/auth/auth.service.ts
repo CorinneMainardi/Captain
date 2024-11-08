@@ -65,6 +65,7 @@ export class AuthService {
     const expMs = expDate.getTime() - new Date().getTime();
     this.autoLogoutTimer = setTimeout(() => {
       this.logout();
+      this.router.navigate(['/']);
     }, expMs);
   }
 

@@ -8,6 +8,7 @@ import { iUser } from '../../interfaces/iuser';
 import { AuthService } from '../../auth/auth.service';
 
 import { UserService } from '../../services/user.service';
+import { iAccessData } from '../../interfaces/iaccess-data';
 
 @Component({
   selector: 'app-stories',
@@ -39,6 +40,7 @@ export class StoriesComponent {
         this.loadStoria(+id);
       }
     });
+    this.autoLogout();
   }
 
   loadStoria(id: number) {
@@ -68,5 +70,18 @@ export class StoriesComponent {
   addFavorites() {
     if (this.user.id)
       this.userSvc.addFavorite(this.user.id, this.favorite).subscribe();
+  }
+
+  autoLogout() {
+    this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+      if (accessData) {
+        const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+          accessData.accessToken
+        );
+        if (expDate) {
+          this.authSvc.autoLogout(expDate);
+        }
+      }
+    });
   }
 }

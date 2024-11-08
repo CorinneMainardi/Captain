@@ -24,7 +24,7 @@ export class FavoritesComponent {
     private userSvc: UserService
   ) {}
   ngOnInit() {
-    // this.autoLogout();
+    this.autoLogout();
     this.authSvc.restoreUser();
 
     this.getThisUser().subscribe(() => {
@@ -55,17 +55,17 @@ export class FavoritesComponent {
       }
     });
   }
+
+  autoLogout() {
+    this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+      if (accessData) {
+        const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+          accessData.accessToken
+        );
+        if (expDate) {
+          this.authSvc.autoLogout(expDate);
+        }
+      }
+    });
+  }
 }
-// autoLogout() {
-//   this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
-//     if (accessData) {
-//       const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
-//         accessData.accessToken
-//       );
-//       if (expDate) {
-//         this.authSvc.autoLogout(expDate);
-//         this.router.navigate(['/']);
-//       }
-//     }
-//   });
-// }

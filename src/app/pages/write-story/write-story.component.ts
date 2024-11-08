@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { StoriesService } from '../../servicespages/stories.service';
 import { iStoria } from '../../interfaces/istoria';
+import { iAccessData } from '../../interfaces/iaccess-data';
 
 @Component({
   selector: 'app-write-story',
@@ -42,6 +43,7 @@ export class WriteStoryComponent {
         this.user = user;
       }
     });
+    this.autoLogout();
   }
 
   // Getter per l'array di capitoli
@@ -115,5 +117,17 @@ export class WriteStoryComponent {
   resetForm(e: MouseEvent): void {
     e.preventDefault();
     this.validateForm.reset();
+  }
+  autoLogout() {
+    this.authSvc.authSubject$.subscribe((accessData: iAccessData | null) => {
+      if (accessData) {
+        const expDate = this.authSvc.jwtHelper.getTokenExpirationDate(
+          accessData.accessToken
+        );
+        if (expDate) {
+          this.authSvc.autoLogout(expDate);
+        }
+      }
+    });
   }
 }
