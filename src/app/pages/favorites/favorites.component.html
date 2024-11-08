@@ -1,9 +1,10 @@
-<h1>Le tue storie preferite</h1>
-<p>
-  Qui troverai le storie in attesa di essere lette e quelle che ti hanno
-  emozionato
-</p>
-
+<div class="text">
+  <h1>Le tue storie preferite</h1>
+  <p>
+    Qui troverai le storie in attesa di essere lette e quelle che ti hanno
+    emozionato
+  </p>
+</div>
 @if(favorites.length>0){
 <div class="container">
   <div *ngFor="let fav of favorites" [routerLink]="['/stories', fav.id]">

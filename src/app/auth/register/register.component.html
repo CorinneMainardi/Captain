@@ -1,4 +1,4 @@
-<h5>Registrati per poter leggere e/o dar voce alle tue storie</h5>
+<h1>Registrati per poter leggere e/o dar voce alle tue storie</h1>
 
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <nz-form-item>
@@ -85,6 +85,10 @@
           I have read the
           <a [routerLink]="['/']" fragment="regolamento">agreement</a>
         </span>
+        <p class="regolamento">
+          Se non accetti il regolamento, non potrai leggere le storie, ma solo
+          scriverle
+        </p>
       </label>
     </nz-form-control>
   </nz-form-item>
