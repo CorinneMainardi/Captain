@@ -6,47 +6,56 @@
     Mi raccomando, se vuoi metterti alla prova comincia a scrivere anche tu!
   </p>
 </div>
-<div>
-  <nz-carousel [nzEffect]="strategy" *ngIf="stories.length > 0">
-    @for (index of array; track index) {
-    <div nz-carousel-content *ngFor="let storia of stories">
-      <table border="1">
-        <tr>
-          <th><img [src]="storia.img" alt="{{ storia.img }}" /></th>
-          <th>
-            <h3>
-              <span class="input">Titolo: <br /></span>
-              <span class="value">{{ storia.title }}</span>
-            </h3>
-            <p>
-              <span class="input"> Descrizione: </span> <br />
-              <span class="value">{{ storia.description }} </span>
-            </p>
 
-            <p>
-              <span class="input"> Genere: <br /> </span>
-              <span class="value"> {{ storia.genere }}</span>
-            </p>
+<div class="max-container">
+  <div class="carouse-container">
+    <nz-carousel [nzEffect]="strategy" *ngIf="stories.length > 0">
+      @for (index of array; track index) {
+      <div nz-carousel-content *ngFor="let storia of stories">
+        <table border="1">
+          <tr>
+            <th><img [src]="storia.img" alt="{{ storia.img }}" /></th>
+            <th>
+              <h3>
+                <span class="input">Titolo: <br /></span>
+                <span class="value">{{ storia.title }}</span>
+              </h3>
+              <p>
+                <span class="input"> Descrizione: </span> <br />
+                <span class="value">{{ storia.description }} </span>
+              </p>
 
-            <p>
-              <span class="input"> Autore: </span> <br />
-              <span class="value"> {{ storia.username }} </span>
-            </p>
-          </th>
-        </tr>
-      </table>
-      <p>
-        <a
-          [routerLink]="['/stories', storia.id]"
-          nz-button
-          nzType="default"
-          nzSize="'small'"
-          nzShape="round"
-        >
-          <span nz-icon nzType="read" nzTheme="outline"></span> Leggi</a
-        >
-      </p>
-    </div>
-    }
-  </nz-carousel>
+              <p>
+                <span class="input"> Genere: <br /> </span>
+                <span class="value"> {{ storia.genere }}</span>
+              </p>
+
+              <p>
+                <span class="input"> Autore: </span> <br />
+                <span class="value"> {{ storia.username }} </span>
+              </p>
+            </th>
+          </tr>
+        </table>
+        <p>
+          <a
+            [routerLink]="['/stories', storia.id]"
+            nz-button
+            nzType="default"
+            nzSize="'small'"
+            nzShape="round"
+          >
+            <span nz-icon nzType="read" nzTheme="outline"></span> Leggi</a
+          >
+        </p>
+      </div>
+      }
+    </nz-carousel>
+  </div>
+
+  <div class="card-container">
+    <nz-card nzTitle="Community" nzIcon="usergroup-delete">
+      <p *ngFor="let user of users">{{ user.username }}</p>
+    </nz-card>
+  </div>
 </div>

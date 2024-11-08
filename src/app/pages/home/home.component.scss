@@ -1,3 +1,10 @@
+.max-container {
+  display: flex;
+  justify-content: space-between;
+}
+.card-container {
+  margin-right: 100px;
+}
 .text h1 {
   margin-left: 100px;
 
@@ -68,4 +75,12 @@ a,
 span {
   color: rgb(186, 250, 114);
   font-size: 16px;
+}
+nz-card {
+  width: 300px;
+  background-color: #013c49;
+  color: #fff;
+}
+[nzTitle] {
+  color: #fff;
 }

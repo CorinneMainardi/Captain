@@ -1,7 +1,11 @@
+import { StoriesService } from './../../servicespages/stories.service';
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 import { iAccessData } from '../../interfaces/iaccess-data';
+import { iUser } from '../../interfaces/iuser';
+import { iStoria } from '../../interfaces/istoria';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-user-detail',
@@ -9,10 +13,32 @@ import { iAccessData } from '../../interfaces/iaccess-data';
   styleUrl: './user-detail.component.scss',
 })
 export class UserDetailComponent {
-  constructor(private authSvc: AuthService, private router: Router) {}
+  user!: iAccessData | null;
+  stories: iStoria[] = [];
+  isShow$ = new BehaviorSubject<boolean>(true);
+
+  constructor(
+    private authSvc: AuthService,
+    private router: Router,
+    private StoriesSvc: StoriesService
+  ) {}
   ngOnInit() {
     // this.autoLogout();
     this.authSvc.restoreUser();
+
+    this.authSvc.authSubject$.subscribe((user) => (this.user = user));
+
+    if (this.user?.user.id)
+      this.StoriesSvc.getAllStories().subscribe((story) => {
+        story.filter((storia) => {
+          if (storia.userId === this.user?.user.id) {
+            this.stories.push(storia);
+          }
+        });
+      });
+  }
+  toggleShow(): void {
+    this.isShow$.next(!this.isShow$.getValue());
   }
 
   // autoLogout() {

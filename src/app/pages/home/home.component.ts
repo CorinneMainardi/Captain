@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { iAccessData } from '../../interfaces/iaccess-data';
@@ -5,6 +6,7 @@ import { Router } from '@angular/router';
 import { iStoria } from '../../interfaces/istoria';
 import { StoriesService } from '../../servicespages/stories.service';
 import { NzButtonSize } from 'ng-zorro-antd/button';
+import { iUser } from '../../interfaces/iuser';
 
 @Component({
   selector: 'app-home',
@@ -15,17 +17,19 @@ export class HomeComponent {
   constructor(
     private authSvc: AuthService,
     private router: Router,
-    private storiesSvc: StoriesService
+    private storiesSvc: StoriesService,
+    private userSvc: UserService
   ) {}
   public strategy = 'flip';
   public array = [1];
   size: NzButtonSize = 'small';
   stories: iStoria[] = [];
+  users: iUser[] = [];
   ngOnInit() {
     this.storiesSvc.getAllStories().subscribe((storia) => {
       this.stories = storia;
-      setTimeout(() => console.log(this.stories), 2000);
     });
+    this.userSvc.getAllUser().subscribe((user) => (this.users = user));
 
     // this.autoLogout();
     this.authSvc.restoreUser();

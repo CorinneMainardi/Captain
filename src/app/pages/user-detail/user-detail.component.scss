@@ -1,0 +1,31 @@
+.text h1 {
+  text-align: center;
+
+  color: #c38e7d;
+}
+.text p {
+  text-align: center;
+  font-size: 20px;
+  color: #c38e7d;
+}
+nz-card {
+  margin-top: 100px;
+  margin-inline: auto;
+  width: 500px;
+  background-image: linear-gradient(
+    to right top,
+    #caa9cf,
+    #ac9dc8,
+    #8b93bf,
+    #6988b2,
+    #457da1,
+    #327493,
+    #1e6a84,
+    #056175,
+    #04576a,
+    #034e5f,
+    #024554,
+    #013c49
+  );
+  color: black;
+}

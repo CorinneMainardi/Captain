@@ -5,7 +5,7 @@ export interface iStoria {
   description: string;
   capitoli: iCapitolo[];
   id?: number;
-  userId: number; //autore
+  userId?: number; //autore
   genere: string;
   username?: string;
   img: string;

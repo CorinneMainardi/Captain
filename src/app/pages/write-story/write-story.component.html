@@ -17,10 +17,13 @@
         placeholder="Inserisci il titolo della storia"
       />
       <ng-template #titleErrorTpl let-control>
-        @if (control.errors?.['required']) { Please input your story title! }
+        <div *ngIf="control.errors?.['required']">
+          Please input your story title!
+        </div>
       </ng-template>
     </nz-form-control>
   </nz-form-item>
+
   <nz-form-item>
     <nz-form-label [nzSpan]="7" nzRequired>Description:</nz-form-label>
     <nz-form-control
@@ -33,24 +36,108 @@
           formControlName="description"
           nz-input
           rows="2"
-          placeholder="write any thing"
+          placeholder="Scrivi qualsiasi cosa"
         ></textarea>
       </nz-textarea-count>
     </nz-form-control>
   </nz-form-item>
+
   <nz-form-item>
     <nz-form-label [nzSpan]="7" nzRequired>Genere: </nz-form-label>
     <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="genereErrorTpl">
       <input nz-input formControlName="genere" placeholder="Genere" />
       <ng-template #genereErrorTpl let-control>
-        @if (control.errors?.['required']) { Please input story genre! }
+        <div *ngIf="control.errors?.['required']">
+          Please input story genre!
+        </div>
       </ng-template>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired
+      >Quanti capitoli ha la tua storia?</nz-form-label
+    >
+    <nz-form-control
+      [nzSpan]="12"
+      nzHasFeedback
+      [nzErrorTip]="capitoliErrorTpl"
+    >
+      <input
+        nz-input
+        formControlName="numeroCapitoli"
+        placeholder="Nr capitoli"
+        type="number"
+        (change)="onCapitoliChange()"
+      />
+      <ng-template #capitoliErrorTpl let-control>
+        <div *ngIf="control.errors?.['required']">
+          Please input the number of chapters!
+        </div>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Aggiungi i campi per i capitoli -->
+  <div formArrayName="capitoli">
+    <div
+      *ngFor="let capitolo of capitoli.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired
+          >Capitolo {{ i + 1 }}: Titolo</nz-form-label
+        >
+        <nz-form-control
+          [nzSpan]="12"
+          nzHasFeedback
+          [nzErrorTip]="capitoloTitleErrorTpl"
+        >
+          <input
+            nz-input
+            formControlName="titolo"
+            placeholder="Titolo capitolo"
+          />
+          <ng-template #capitoloTitleErrorTpl let-control>
+            <div *ngIf="control.errors?.['required']">
+              Please input the chapter title!
+            </div>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired
+          >Capitolo {{ i + 1 }}: Contenuto</nz-form-label
+        >
+        <nz-form-control
+          [nzSpan]="12"
+          nzHasFeedback
+          [nzErrorTip]="capitoloContentErrorTpl"
+        >
+          <textarea
+            nz-input
+            formControlName="contenuto"
+            placeholder="Contenuto capitolo"
+          ></textarea>
+          <ng-template #capitoloContentErrorTpl let-control>
+            <div *ngIf="control.errors?.['required']">
+              Please input the chapter content!
+            </div>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <nz-form-item>
     <nz-form-control [nzOffset]="7" [nzSpan]="12">
-      <button nz-button nzType="primary" [disabled]="!validateForm.valid">
+      <button
+        nz-button
+        nzType="primary"
+        [disabled]="!validateForm.valid"
+        type="submit"
+      >
         Submit
       </button>
       <button nz-button (click)="resetForm($event)">Reset</button>
@@ -58,12 +145,12 @@
   </nz-form-item>
 </form>
 
-}@else {
+} @else {
 <div class="container">
   <div class="regolamentoDiv">
     <img src="any.webp" alt="immagine any" />
     <div class="regolamento">
-      <video controls>
+      <video controls autoplay>
         <source src="lazy.mp4" type="video/mp4" />
       </video>
       <p>

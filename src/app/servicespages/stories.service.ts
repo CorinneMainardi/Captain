@@ -16,4 +16,7 @@ export class StoriesService {
   getStoriaById(id: number) {
     return this.http.get<iStoria>(`${this.storiesUrl}/${id}`);
   }
+  addNewStory(newStory: iStoria) {
+    return this.http.post<iStoria>(this.storiesUrl, newStory);
+  }
 }

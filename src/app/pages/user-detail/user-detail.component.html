@@ -1,1 +1,43 @@
-<p>user-detail works!</p>
+<div class="text">
+  <h1>Benvenuto! <br /></h1>
+  <p>Questi sono i dati che hai inserito in fase di registrazione</p>
+</div>
+
+@if(user){
+
+<div class="card-container">
+  <nz-card nzTitle="I tuoi dati">
+    <p>Username: {{ user.user.username }}</p>
+    <p>Email: {{ user.user.email }}</p>
+    <p *ngIf="user.user.agree === true">
+      Hai accetato il nostro regolamento e puoi scrivere le tue storie
+    </p>
+    <p *ngIf="user.user.agree === false">
+      Non Hai accetato il nostro regolamento! Non puoi scrivere le tue storie
+    </p>
+  </nz-card>
+</div>
+
+}
+
+<div class="text">
+  <p>Storie scritte da te</p>
+</div>
+
+<div class="card-container">
+  <ng-container *ngFor="let story of stories">
+    <nz-card nzTitle="la tua storia" *ngIf="isShow$">
+      <p>Titolo: {{ story.title }}</p>
+      <p>Descrizione: {{ story.description }}</p>
+      <button
+        nz-button
+        nzType="default"
+        nzSize="'small'"
+        nzShape="round"
+        (click)="toggleShow()"
+      >
+        <span nz-icon nzType="delete" nzTheme="outline"></span> Elimina
+      </button>
+    </nz-card>
+  </ng-container>
+</div>
