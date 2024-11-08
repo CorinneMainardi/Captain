@@ -8,7 +8,7 @@ import {
   NzCarouselFlipStrategy,
   NzCarouselModule,
 } from 'ng-zorro-antd/carousel';
-import { SharedModule } from '../../shared-component/shared/shared.module';
+
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCardModule } from 'ng-zorro-antd/card';
 
@@ -18,7 +18,6 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     CommonModule,
     HomeRoutingModule,
     NzCarouselModule,
-    SharedModule,
     NzIconModule,
     NzCardModule,
   ],

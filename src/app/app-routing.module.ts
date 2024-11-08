@@ -47,13 +47,6 @@ const routes: Routes = [
   },
 
   {
-    path: 'shared',
-    loadChildren: () =>
-      import('./shared-component/shared/shared.module').then(
-        (m) => m.SharedModule
-      ),
-  },
-  {
     path: 'stories/:id',
     loadChildren: () =>
       import('./pages/stories/stories.module').then((m) => m.StoriesModule),
