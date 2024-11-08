@@ -11,11 +11,12 @@ import { StoriesService } from '../servicespages/stories.service';
 export class WelcomeComponent {
   size: NzButtonSize = 'small';
   stories: Partial<iStoria[]> = [];
+  storia!: iStoria;
   constructor(private storiesSvc: StoriesService) {}
   ngOnInit() {
     this.storiesSvc.getAllStories().subscribe((storia) => {
       this.stories = storia;
-      setTimeout(() => console.log(this.stories), 2000);
+      if (this.stories[0]) this.storia = this.stories[0];
     });
   }
 }

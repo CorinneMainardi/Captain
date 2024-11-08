@@ -13,18 +13,17 @@
   Chiunque dietro un nickname, potrà raccomntare di sé e far scorrere le dita
   sulal tastiera lasciando che le storie prendano vita
 </p>
-<!-- @if(stories.id){
-@if(stories.id === 1){
-<div  *ngFor="let story of stories" class="container">
-  <div >
-    <p class="title">{{ story.title }}</p>
-    <img [src]="story.img" alt="{{ story.img }}" />
 
-    <p>Descrizione{{ story.description }}</p>
+@if(storia){
+<div class="container">
+  <div>
+    <p class="title">{{ storia.title }}</p>
+    <img [src]="storia.img" alt="{{ storia.img }}" />
+
+    <p>Descrizione{{ storia.description }}</p>
   </div>
 </div>
 }
-} -->
 
 <section class="logReg">
   <h3>Vuoi continuare a leggere la storia?</h3>
