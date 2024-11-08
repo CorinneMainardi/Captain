@@ -1,4 +1,4 @@
-import { StoriesService } from './../../servicespages/stories.service';
+import { StoriesService } from '../../services/stories.service';
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class UserDetailComponent {
   constructor(
     private authSvc: AuthService,
     private router: Router,
-    private StoriesSvc: StoriesService
+    private storiesSvc: StoriesService
   ) {
     this.deleteSubject$.subscribe((index) => {
       this.stories.splice(index, 1); // Rimuove l'elemento all'indice specificato
@@ -33,7 +33,7 @@ export class UserDetailComponent {
     this.authSvc.authSubject$.subscribe((user) => (this.user = user));
 
     if (this.user?.user.id)
-      this.StoriesSvc.getAllStories().subscribe((story) => {
+      this.storiesSvc.getAllStories().subscribe((story) => {
         story.filter((storia) => {
           if (storia.userId === this.user?.user.id) {
             this.stories.push(storia);
@@ -42,7 +42,11 @@ export class UserDetailComponent {
       });
   }
   deleteStory(index: number): void {
-    this.stories.splice(index, 1); // Rimuove l'elemento alla posizione dell'indice
+    const story = this.stories[index];
+    if (story.id) {
+      this.stories.splice(index, 1); // Rimuove localmente la storia
+      this.storiesSvc.notifyDelete(story.id); // Notifica eliminazione agli altri componenti
+    }
   }
 
   autoLogout() {

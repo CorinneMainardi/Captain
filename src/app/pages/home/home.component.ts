@@ -4,7 +4,7 @@ import { AuthService } from '../../auth/auth.service';
 import { iAccessData } from '../../interfaces/iaccess-data';
 import { Router } from '@angular/router';
 import { iStoria } from '../../interfaces/istoria';
-import { StoriesService } from '../../servicespages/stories.service';
+import { StoriesService } from '../../services/stories.service';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 import { iUser } from '../../interfaces/iuser';
 
@@ -29,6 +29,12 @@ export class HomeComponent {
     this.storiesSvc.getAllStories().subscribe((storia) => {
       this.stories = storia;
     });
+
+    // Iscrizione al subject per eliminazioni
+    this.storiesSvc.deleteObservable$.subscribe((id) => {
+      this.stories = this.stories.filter((story) => story.id !== id);
+    });
+
     this.userSvc.getAllUser().subscribe((user) => (this.users = user));
 
     this.autoLogout();

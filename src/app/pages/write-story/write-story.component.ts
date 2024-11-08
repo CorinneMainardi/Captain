@@ -10,7 +10,7 @@ import {
   NonNullableFormBuilder,
   Validators,
 } from '@angular/forms';
-import { StoriesService } from '../../servicespages/stories.service';
+import { StoriesService } from '../../services/stories.service';
 import { iStoria } from '../../interfaces/istoria';
 import { iAccessData } from '../../interfaces/iaccess-data';
 

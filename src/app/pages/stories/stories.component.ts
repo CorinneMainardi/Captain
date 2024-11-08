@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { iStoria } from '../../interfaces/istoria';
 import { iCapitolo } from '../../interfaces/icapitolo';
 import { ActivatedRoute } from '@angular/router';
-import { StoriesService } from '../../servicespages/stories.service';
+import { StoriesService } from '../../services/stories.service';
 import { map } from 'rxjs';
 import { iUser } from '../../interfaces/iuser';
 import { AuthService } from '../../auth/auth.service';

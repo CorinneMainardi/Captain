@@ -439,6 +439,21 @@
         }
       ],
       "id": 5
+    },
+    {
+      "title": "prova",
+      "description": "prova",
+      "genere": "prova",
+      "userId": 4,
+      "img": "",
+      "capitoli": [
+        {
+          "titolo": "prova",
+          "body": "prova",
+          "numeroCapitolo": 1
+        }
+      ],
+      "id": 6
     }
   ]
 }

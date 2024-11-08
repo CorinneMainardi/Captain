@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 import { iStoria } from '../interfaces/istoria';
-import { StoriesService } from '../servicespages/stories.service';
+import { StoriesService } from '../services/stories.service';
 
 @Component({
   selector: 'app-welcome',
