@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { iAccessData } from '../../interfaces/iaccess-data';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
-import { FavoritesService } from '../../servicespages/favorites.service';
+
 import { iStoria } from '../../interfaces/istoria';
 import { map } from 'rxjs';
 import { iUser } from '../../interfaces/iuser';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-favorites',
@@ -20,34 +21,38 @@ export class FavoritesComponent {
   constructor(
     private authSvc: AuthService,
     private router: Router,
-    private favoritesSvc: FavoritesService
+    private userSvc: UserService
   ) {}
   ngOnInit() {
     // this.autoLogout();
     this.authSvc.restoreUser();
 
-    this.getThisUser();
-    this.getAllFavorites();
+    this.getThisUser().subscribe(() => {
+      this.getAllFavorites();
+    });
   }
   getThisUser() {
-    this.authSvc.user$
-      .pipe(
-        map((user) => {
-          if (user) {
-            this.user = user;
-            if (this.user.id) {
-              this.id = this.user.id;
-            }
+    return this.authSvc.user$.pipe(
+      map((user) => {
+        if (user) {
+          this.user = user;
+          if (this.user.id) {
+            this.id = this.user.id;
           }
-        })
-      )
-      .subscribe();
+        }
+      })
+    );
   }
 
   getAllFavorites() {
-    this.favoritesSvc.getAllFavorites(this.id).subscribe((favorites) => {
-      this.favorites = favorites;
-      console.log(this.favorites);
+    this.userSvc.getAllFavorites(this.user).subscribe((favorites) => {
+      if (favorites && favorites.length > 0) {
+        this.favorites = favorites;
+        console.log('Questi sono i tuoi favoriti:', this.favorites);
+      } else {
+        this.favorites = [];
+        console.log('Nessun favorito trovato per questo utente.');
+      }
     });
   }
 }

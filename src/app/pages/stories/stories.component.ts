@@ -1,4 +1,3 @@
-import { FavoritesService } from './../../servicespages/favorites.service';
 import { Component } from '@angular/core';
 import { iStoria } from '../../interfaces/istoria';
 import { iCapitolo } from '../../interfaces/icapitolo';
@@ -7,7 +6,8 @@ import { StoriesService } from '../../servicespages/stories.service';
 import { map } from 'rxjs';
 import { iUser } from '../../interfaces/iuser';
 import { AuthService } from '../../auth/auth.service';
-import { Ifavorite } from '../../interfaces/ifavorite';
+
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-stories',
@@ -18,15 +18,16 @@ export class StoriesComponent {
   public array = [1];
   dotPosition = 'left';
   storia!: iStoria;
-  fav!: Ifavorite;
+  favorite!: iStoria;
+
   capitoli: iCapitolo[] = [];
   id!: number;
-
   user!: iUser;
+
   constructor(
     private route: ActivatedRoute,
     private storiesSvc: StoriesService,
-    private favoritesSvc: FavoritesService,
+    private userSvc: UserService,
     private authSvc: AuthService
   ) {}
 
@@ -44,7 +45,7 @@ export class StoriesComponent {
     this.storiesSvc.getStoriaById(id).subscribe((storia) => {
       this.storia = storia;
       this.capitoli = storia.capitoli;
-      this.addUserById();
+      this.userWithFav();
     });
   }
   getThisUser() {
@@ -59,13 +60,13 @@ export class StoriesComponent {
       )
       .subscribe();
   }
-  addUserById() {
+  userWithFav() {
     if (this.user.id) {
-      this.fav = { ...this.storia, addedById: this.user.id } as Ifavorite;
+      this.favorite = this.storia;
     }
   }
   addFavorites() {
-    this.favoritesSvc.addFavorite(this.fav).subscribe();
-    console.log(this.fav);
+    if (this.user.id)
+      this.userSvc.addFavorite(this.user.id, this.favorite).subscribe();
   }
 }

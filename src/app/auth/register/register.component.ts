@@ -75,8 +75,17 @@ export class RegisterComponent {
   }
 
   register() {
-    this.authSvc
-      .register(this.validateForm.value)
-      .subscribe((res) => this.router.navigate(['/login']));
+    const userData: iUser = {
+      email: this.validateForm.value.email || '', // Valore di fallback se undefined
+      password: this.validateForm.value.password || '', // Valore di fallback se undefined
+      username: this.validateForm.value.username || '', // Valore di fallback se undefined
+      captcha: this.validateForm.value.captcha || '', // Valore di fallback se undefined
+      agree: this.validateForm.value.agree || false, // Valore di fallback per agree
+      favorites: [], // Inizializza `favorites` come array vuoto
+    };
+
+    this.authSvc.register(userData).subscribe((res) => {
+      this.router.navigate(['/login']);
+    });
   }
 }
