@@ -41,12 +41,11 @@ export class UserDetailComponent {
         });
       });
   }
-  deleteStory(index: number): void {
-    const story = this.stories[index];
-    if (story.id) {
-      this.stories.splice(index, 1); // Rimuove localmente la storia
-      this.storiesSvc.notifyDelete(story.id); // Notifica eliminazione agli altri componenti
-    }
+  deleteStory(id: number | undefined) {
+    if (id)
+      this.storiesSvc.deleteStory(id).subscribe(() => {
+        window.location.reload();
+      });
   }
 
   autoLogout() {

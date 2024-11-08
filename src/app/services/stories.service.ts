@@ -2,16 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { Injectable } from '@angular/core';
 import { iStoria } from '../interfaces/istoria';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoriesService {
   storiesUrl: string = environment.storiesUrl;
-
-  private deleteSubject$ = new Subject<number>(); // Subject per ID delle storie da eliminare
-  deleteObservable$ = this.deleteSubject$.asObservable(); // Observable per iscriversi
 
   constructor(private http: HttpClient) {}
 
@@ -26,9 +22,7 @@ export class StoriesService {
   addNewStory(newStory: iStoria) {
     return this.http.post<iStoria>(this.storiesUrl, newStory);
   }
-
-  // Metodo per notificare eliminazioni tramite Subject
-  notifyDelete(id: number): void {
-    this.deleteSubject$.next(id);
+  deleteStory(id: number) {
+    return this.http.delete<iStoria>(`${this.storiesUrl}/${id}`);
   }
 }

@@ -406,54 +406,19 @@
       "img": "https://i.ibb.co/SxzWJrc/311079338-1132427210975835-5353909784959405737-n.jpg"
     },
     {
-      "title": "sdbf",
-      "description": "rsd",
-      "genere": "eq",
+      "title": "storia di prova ",
+      "description": "storia di prova ",
+      "genere": "storia di prova ",
       "userId": 4,
       "img": "",
       "capitoli": [
         {
-          "titolo": "vzdb",
-          "body": "ws<z",
+          "titolo": "1",
+          "body": "storia di prova ",
           "numeroCapitolo": 1
-        },
-        {
-          "titolo": "ùsw",
-          "body": "a<h",
-          "numeroCapitolo": 2
         }
       ],
       "id": 4
-    },
-    {
-      "title": "bla bla",
-      "description": "bla",
-      "genere": "bla",
-      "userId": 4,
-      "img": "",
-      "capitoli": [
-        {
-          "titolo": "bla",
-          "body": "bla",
-          "numeroCapitolo": 1
-        }
-      ],
-      "id": 5
-    },
-    {
-      "title": "prova",
-      "description": "prova",
-      "genere": "prova",
-      "userId": 4,
-      "img": "",
-      "capitoli": [
-        {
-          "titolo": "prova",
-          "body": "prova",
-          "numeroCapitolo": 1
-        }
-      ],
-      "id": 6
     }
   ]
 }

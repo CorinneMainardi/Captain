@@ -30,11 +30,6 @@ export class HomeComponent {
       this.stories = storia;
     });
 
-    // Iscrizione al subject per eliminazioni
-    this.storiesSvc.deleteObservable$.subscribe((id) => {
-      this.stories = this.stories.filter((story) => story.id !== id);
-    });
-
     this.userSvc.getAllUser().subscribe((user) => (this.users = user));
 
     this.autoLogout();
