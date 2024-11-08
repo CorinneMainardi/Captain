@@ -1,46 +1,56 @@
 <div class="text">
   <h1>Benvenuto! <br /></h1>
-  <p>Questi sono i dati che hai inserito in fase di registrazione</p>
+  <p>Questa è la pagina di gestione del tuo acccount</p>
+  <p>
+    Puoi controllare i tuoi dati di accesso, tenere traccia delle storie scritte
+    ed eliminarle
+  </p>
 </div>
-
-@if(user){
-
-<div class="card-container">
-  <nz-card nzTitle="I tuoi dati">
-    <p>Username: {{ user.user.username }}</p>
-    <p>Email: {{ user.user.email }}</p>
-    <p *ngIf="user.user.agree === true">
-      Hai accetato il nostro regolamento e puoi scrivere le tue storie
-    </p>
-    <p *ngIf="user.user.agree === false">
-      Non Hai accetato il nostro regolamento! Non puoi scrivere le tue storie
-    </p>
-  </nz-card>
-</div>
-
-}
-
-<div class="text">
+<p class="warning1">
+  <span nz-icon nzType="warning" nzTheme="outline"></span> Le storie verranno
+  eliminate in modo permanente
+</p>
+<div class="text-s">
   <p>Storie scritte da te</p>
 </div>
+<div class="user-detail">
+  <div class="card card-container">
+    <ng-container *ngFor="let story of stories">
+      <nz-card nzTitle="la tua storia">
+        <p>Titolo: {{ story.title }}</p>
+        @if(story.img){
+        <p><img [src]="story.img" alt="{{ story.img }}" /></p>
+        }
+        <p>Descrizione: {{ story.description }}</p>
+        <button
+          nz-button
+          nzType="default"
+          nzSize="'small'"
+          nzShape="round"
+          (click)="deleteStory(story.id)"
+        >
+          <span nz-icon nzType="delete" nzTheme="outline"></span> Elimina
+        </button>
+      </nz-card>
+    </ng-container>
+  </div>
+  @if(user){
 
-<div class="card-container">
-  <ng-container *ngFor="let story of stories">
-    <nz-card nzTitle="la tua storia">
-      <p>Titolo: {{ story.title }}</p>
-      @if(story.img){
-      <p><img [src]="story.img" alt="{{ story.img }}" /></p>
-      }
-      <p>Descrizione: {{ story.description }}</p>
-      <button
-        nz-button
-        nzType="default"
-        nzSize="'small'"
-        nzShape="round"
-        (click)="deleteStory(story.id)"
-      >
-        <span nz-icon nzType="delete" nzTheme="outline"></span> Elimina
-      </button>
+  <div class="card2 card-container">
+    <p class="text-u">
+      Questi sono i dati che hai inserito in fase di registrazione
+    </p>
+    <nz-card nzTitle="I tuoi dati">
+      <p>Username: {{ user.user.username }}</p>
+      <p>Email: {{ user.user.email }}</p>
+      <p *ngIf="user.user.agree === true">
+        Hai accetato il nostro regolamento e puoi scrivere le tue storie
+      </p>
+      <p *ngIf="user.user.agree === false">
+        Non Hai accetato il nostro regolamento! Non puoi scrivere le tue storie
+      </p>
     </nz-card>
-  </ng-container>
+  </div>
+
+  }
 </div>
